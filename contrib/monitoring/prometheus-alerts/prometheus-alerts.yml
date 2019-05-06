@@ -10,7 +10,7 @@ groups:
       type: basic
     annotations:
       description: dell_hw_chassis_fan_status == 1
-      summary: On Host {{ .Labels.instance }} fan in slot {{ .Lables.name }} is broken
+      summary: On Host {{ .Labels.instance }} fan in slot {{ .Labels.name }} is broken
   - alert: lost_hard_drive
     expr: (count(dell_hw_storage_pdisk_status OFFSET 1w) BY (instance)) - (count(dell_hw_storage_pdisk_status)
       BY (instance)) > 0
@@ -43,5 +43,5 @@ groups:
       type: basic
     annotations:
       description: dell_hw_storage_controller_status == 1
-      summary: On Host {{ .Labels.instance }} storage controller with id {{ .Lables.id
+      summary: On Host {{ .Labels.instance }} storage controller with id {{ .Labels.id
         }} is broken. Check omreport storage controller command
